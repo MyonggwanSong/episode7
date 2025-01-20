@@ -89,18 +89,19 @@ public class Array1 : MonoBehaviour
     {
 
         int index = 0;
-        foreach (string Name in namearray) // foreach(자식 부모) : 배열을 넣어주면 각 인덱스마다 한번씩 실행
+        foreach (string Name in namearray)
         {
+            index++;
             if (Name == findname)
             {
                 Debug.Log($"index{index}에 위치한 {Name}를 찾았습니다.");
                 return; // 함수 자체를 탈출!(void로 리턴해버리기~)
             }
-            index++;
         }
 
         Debug.Log($"해당 이름을 찾지 못했습니다. 다시 한번 확인 해주세요.");
     }
 
+    
 
 }
