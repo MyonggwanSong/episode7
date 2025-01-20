@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using CustomInspector;
-using Unity.Burst.Intrinsics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class List1 : MonoBehaviour
@@ -103,6 +101,11 @@ public class List1 : MonoBehaviour
 
     public List<string> dataStr = new List<string>();
     public List<GameObject> dataGame = new List<GameObject>();
+
+    void adfasdf()
+    {
+        dataGame.Clear();
+    }
 
 
 }
