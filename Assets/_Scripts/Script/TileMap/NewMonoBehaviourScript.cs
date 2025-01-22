@@ -10,6 +10,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // [SerializeField] GameObject Tree;
 
     [Header("하이트 맵 속성")]
+    // [SerializeField] LayerMask layerMask;
 
     [SerializeField] float heightRange;
     [SerializeField] float gapRange;
@@ -45,6 +46,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         int w = heightmap.width;
         int h = heightmap.height;
         GameObject Empty = new GameObject("Group");
+        Empty.isStatic = true;
+        // Empty.layer = LayerMask.NameToLayer(layerGround.ToString("Ground"));
         //Debug.Log(w);
         //Debug.Log(h);
 
