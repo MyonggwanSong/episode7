@@ -7,12 +7,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] Texture2D heightmap;
 
     [SerializeField] GameObject tile;
-    [SerializeField] GameObject Tree;
+    // [SerializeField] GameObject Tree;
 
     [Header("하이트 맵 속성")]
 
     [SerializeField] float heightRange;
-    [SerializeField] float treeoffset;
+    [SerializeField] float gapRange;
+    // [SerializeField] float treeoffset;
 
     [Button("GetInfo", size =Size.big)] public bool _b0;
     void GetInfo()
@@ -54,18 +55,18 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
                 Color col = heightmap.GetPixel(x, z);
                 float y = heightRange * col.r;
-                float y_ = heightRange * col.r + treeoffset / 2 ;
+                // float y_ = heightRange * col.r + treeoffset / 2 ;
 
 
 
-                if (col.g > 0.0f)
-                {
-                    GameObject tree = Instantiate(Tree, new Vector3(x, y_, z), Quaternion.identity);
-                    tree.transform.SetParent(Empty.transform);
-                }
-                else { }
+                // if (col.g > 0.0f)
+                // {
+                //     GameObject tree = Instantiate(Tree, new Vector3(x, y_, z), Quaternion.identity);
+                //     tree.transform.SetParent(Empty.transform);
+                // }
+                // else { }
 
-                GameObject o = Instantiate(tile, new Vector3(x, y, z), Quaternion.identity);
+                GameObject o = Instantiate(tile, new Vector3(x, y, z)*gapRange, Quaternion.identity);
                 o.transform.SetParent(Empty.transform);
 
             }
