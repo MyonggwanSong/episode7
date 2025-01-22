@@ -124,10 +124,22 @@ public class RAndomSpawnGenerator : MonoBehaviour
             //     DestroyImmediate(t.gameObject); /*에디터 모드일 때*/  // Destroy() : 플레이 모드일 때 
             // }
 
-            foreach (Transform t in propRoot)
+            // foreach (Transform t in propRoot)
+            // {
+            //     if (CheckInside(t.position, transform.position) == true)
+            //         DestroyImmediate(t.gameObject);
+            // }
+
+
+            for (int i = propRoot.childCount - 1; i >= 0; i--)
             {
-                if (CheckInside(t.position, transform.position) == true)
+                
+                Transform t = propRoot.GetChild(i);
+                if (CheckInside(t.position, transform.position))
+                {
+                    Debug.Log("잘나온다");
                     DestroyImmediate(t.gameObject);
+                }
             }
         }
 
