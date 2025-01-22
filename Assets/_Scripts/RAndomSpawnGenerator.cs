@@ -12,7 +12,7 @@ public class RAndomSpawnGenerator : MonoBehaviour
     {
         if (deleteOn == false)
         {
-            Vector3 temp = new Vector3(transform.position.x, hieght, transform.position.z);
+            Vector3 temp = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(temp, Radius);
         }
@@ -20,7 +20,7 @@ public class RAndomSpawnGenerator : MonoBehaviour
         // Gizmos.DrawWireCube(temp,Vector3.one*Radius);
         else
         {
-            Vector3 destroied = new Vector3(transform.position.x, hieght, transform.position.z);
+            Vector3 destroied = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Gizmos.color = Color.gray;
             Gizmos.DrawWireSphere(destroied, Radius);
         }
@@ -32,7 +32,7 @@ public class RAndomSpawnGenerator : MonoBehaviour
     [Button("Spawn", size = Size.big), HideField] public bool _b0;
     [Title("범위 속성", fontSize = 15, alignment = TextAlignment.Center), HideField] public bool _t0;
     [SerializeField, Space(10)] float Radius;
-    [SerializeField] float hieght;
+    //[SerializeField] float hieght;
     [SerializeField] LayerMask layerMask;
     [Space(20), HideField] public bool _s0;
     [Title("객체 속성", fontSize = 15, alignment = TextAlignment.Center), HideField] public bool _t1;
@@ -53,13 +53,13 @@ public class RAndomSpawnGenerator : MonoBehaviour
             GameObject clone = Instantiate(prefabs[rndindex]); /*출력*/                       // 클론 찍기(출력)
 
             Vector3 temp = new Vector3(point.x, point.y, point.z);   // temp에 y빼고 클론의 포지션 지정
-            rndpos.y = temp.y;                                                                // temp y값을 랜덤포지션에 넣기
+            //rndpos.y = temp.y;                                                                // temp y값을 랜덤포지션에 넣기
             Vector3 temp2 = new Vector3(scale, scale, scale);                                 // temp2에 랜덤된 scale 입력
             Vector3 temp3 = new Vector3(0.0f, angle, 0.0f);                                   // temp3에 램덤된 y회전율 넣기
 
 
             // add = Random.insideUnitSphere
-            clone.transform.position = rndpos;                                                 // 클론 포지션은 랜덤포지션
+            clone.transform.position = temp;                                                 // 클론 포지션은 랜덤포지션
             clone.transform.localScale = temp2;                                                // 클론 스케일은 temp2
             clone.transform.localEulerAngles = temp3;                                          // 클론 회전은 temp3
             clone.transform.SetParent(propRoot);                                               // 클론 부모는 propRoot 안에
@@ -137,6 +137,7 @@ public class RAndomSpawnGenerator : MonoBehaviour
                 Transform t = propRoot.GetChild(i);
                 if (CheckInside(t.position, transform.position))
                 {
+                    
                     Debug.Log("잘나온다");
                     DestroyImmediate(t.gameObject);
                 }
