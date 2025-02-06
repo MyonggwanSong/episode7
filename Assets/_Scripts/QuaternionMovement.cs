@@ -55,13 +55,13 @@ public class QuaternionMovement : MonoBehaviour
             forward.y = 0.0f;                                                        // y값만 날림
             Vector3 right = cameraName.transform.right * yaw;                        // 카메라의 측방
             right.y = 0.0f;                                                          // y값만 날림
-            Vector3 add = forward.normalized + right.normalized;                              // 카메라의 전방과 측방을 더해서 x,z평면에 원형으로 방향을 만듬 
+            Vector3 add = forward.normalized + right.normalized;                     // 카메라의 전방과 측방을 더해서 x,z평면에 원형으로 방향을 만듬 
 
-            Vector3 movedir = add * moveSpeed * Time.deltaTime;                      // 방향으로 움직임을 
+            Vector3 movedir = add * moveSpeed * Time.deltaTime;                      // 속도 조절(델타타임과 무브 스피드)
 
-            transform.position += movedir;
+            transform.position += movedir;                                           // 현재 포지션에 계속 덮어쓰기함
 
-            Debug.DrawRay(transform.position, movedir * 100f, Color.blue);
+            Debug.DrawRay(transform.position, movedir * 100f, Color.blue);           // 
 
 
         }
