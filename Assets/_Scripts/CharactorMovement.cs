@@ -13,6 +13,7 @@ public class Tween2Sequence : MonoBehaviour
         //SequenceMove();
         //SequenceMoveLoop();
         SequenceMoveWander();
+        //Sequence1();
     }
 
 
